@@ -3,9 +3,9 @@
 /**
  * Implementation of hook_help().
  */
-function pirate_help($section) {
-  switch ($section) {
-    case 'admin/modules#description':
+function pirate_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#pirate':
       return t("Avast ye scurvy dogs!");
   }
 }
@@ -119,9 +119,9 @@ function pirate_filter($op, $delta = 0, $format = -1, $text = '') {
         '%\bdied\b%' => 'snuffed it',
         '/ing\b/' => "in'",
         '/ings\b/' => "in's",
-        // These next two do cool random substitutions
+        // These next two do cool random substitutions.
         '/(\.\s)/e' => 'avast("$0",3)',
-        '/([!\?]\s)/e' => 'avast("$0",2)', // Greater chance after exclamation
+        '/([!\?]\s)/e' => 'avast("$0",2)', // Greater chance after exclamation.
         );
       foreach ($patterns as $pattern_search => $pattern_replace) {
         $text = preg_replace($pattern_search, $pattern_replace, $text);
@@ -136,10 +136,10 @@ function pirate_filter($op, $delta = 0, $format = -1, $text = '') {
  * Implementation of hook_filter_tips().
  */
 function pirate_filter_tips($delta, $format, $long = FALSE) {
-  return "Avast!  This website be taken over by pirates on September 19th.  Yarr!";
+  return "Avast! This website be taken over by pirates on September 19th. Yarr!";
 }
 
-// Support function for pirate()
+// Support function for pirate().
 // this could probably be refactored to make it more generic, allowing
 // different filters to pass their own patterns in.
 function avast($stub = '',$chance = 5) {
@@ -185,7 +185,7 @@ function avast($stub = '',$chance = 5) {
     ", Dance the Hempen Jig",
     ", Hornswaggle",
     ", Ya lily livered swabbie!",
-    );
+  );
   
   shuffle($shouts);	
   return (((1 == rand(1,$chance))?array_shift($shouts):$stub) . ' ');
