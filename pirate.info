@@ -1,3 +1,4 @@
 name = Pirate Filter
 description = "Avast ye scurvy dogs!"
+package = "Jetsam from the High Seas"
 core = 6.x
