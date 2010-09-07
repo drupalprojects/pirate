@@ -19,6 +19,8 @@ function pirate_filter($op, $delta = 0, $format = -1, $text = '') {
       return array(0 => t('Pirate filter'));
     case 'description':
       return t('Ah, Squiddy! I got nothing against ye. I just heard there was gold in yer belly. Ha ha har, ha ha ha har!');
+    case 'settings': 
+      return _pirate_filter_settings();
     case 'process': 
       if (date('md') != '0919') {
         return $text;
@@ -136,7 +138,24 @@ function pirate_filter($op, $delta = 0, $format = -1, $text = '') {
  * Implementation of hook_filter_tips().
  */
 function pirate_filter_tips($delta, $format, $long = FALSE) {
-  return "Avast! This website be taken over by pirates on September 19th. Yarr!";
+  return variable_get('pirate_display_tip', 1) ? "Avast! This website be taken over by pirates on September 19th. Yarr!" : '';
+}
+
+/**
+ * Settings for the Pirate filter.
+ */
+function _pirate_filter_settings() {
+  $form['pirate_filter'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Pirate filter'),
+  );
+  $form['pirate_filter']['pirate_display_tip'] = array(
+    '#title' => t('Display Pirate filter tip'),
+    '#description' => t('In case you want to make it a surprise on September 19th that pirates have taken over your site.'),
+    '#type' => 'checkbox',
+    '#default_value' => variable_get('pirate_display_tip', 1),
+  );
+  return $form;
 }
 
 // Support function for pirate().
