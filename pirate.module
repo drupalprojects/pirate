@@ -22,7 +22,7 @@ function pirate_filter($op, $delta = 0, $format = -1, $text = '') {
     case 'settings': 
       return _pirate_filter_settings();
     case 'process': 
-      if (date('md') != '0919') {
+      if (format_date(time(), 'custom', 'md') != '0919') {
         return $text;
       }
       // Invoke hook_captain(). Also allows other modules to alter our patterns.
