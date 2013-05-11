@@ -1,3 +1,4 @@
 name: Pirate filter
 description: "Avast ye scurvy dogs!"
 core: 8.x
+type: module
