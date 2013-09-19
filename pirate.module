@@ -22,8 +22,11 @@ function pirate_filter($op, $delta = 0, $format = -1, $text = '') {
     case 'settings': 
       return _pirate_filter_settings();
     case 'process': 
+       $pirate_override = variable_get('pirate_override', 0);
       if (format_date(time(), 'custom', 'md') != '0919') {
-        return $text;
+        if ($pirate_override == 0) {
+          return $text;
+        }
       }
       // Invoke hook_captain(). Also allows other modules to alter our patterns.
       // Cache must be flushed for invocations of this hook to be felt.
