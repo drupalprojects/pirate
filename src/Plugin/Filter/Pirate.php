@@ -36,7 +36,7 @@ class Pirate extends FilterBase {
     return $settings;
   }
 
-  /** 
+  /**
    * {@inheritdoc}
    */
   public function process($text, $langcode, $cache, $cache_id) {
@@ -49,7 +49,7 @@ class Pirate extends FilterBase {
     $patterns = module_invoke_all('captain', $patterns);
 
     // Most of the following code is taken from Drupal core's Filter module
-    // in order to exclude text within tags, such as URLs that might get 
+    // in order to exclude text within tags, such as URLs that might get
     // modified using the replacement patterns.
     $ignore_tags = 'a|script|style|code|pre';
     $open_tag = '';
