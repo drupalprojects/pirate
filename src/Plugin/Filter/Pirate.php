@@ -1,31 +1,31 @@
 <?php
 /**
  * @file
- * Contains \Drupal\pirate\Plugin\Filter\FilterPirate.
+ * Contains \Drupal\pirate\Plugin\Filter\Pirate.
  */
 
 namespace Drupal\pirate\Plugin\Filter;
 
-use Drupal\filter\Annotation\Filter;
-use Drupal\Core\Annotation\Translation;
 use Drupal\filter\Plugin\FilterBase;
 
 /**
  * Provides a filter to limit allowed HTML tags.
  *
  * @Filter(
- *   id = "filter_pirate",
+ *   id = "pirate",
  *   module = "pirate",
  *   title = @Translation("Ah, Squiddy! I got nothing against ye. I just heard there was gold in yer belly. Ha ha har, ha ha ha har!"),
- *   type = FILTER_TYPE_TRANSFORM_IRREVERSIBLE,
+ *   type = Drupal\filter\Plugin\FilterInterface::TYPE_TRANSFORM_REVERSIBLE,
  *   settings = {
  *     "pirate_display_tip" = 0,
  *   },
  *   weight = -10
  * )
  */
-class FilterPirate extends FilterBase {
-
+class Pirate extends FilterBase {
+  /**
+   * {@inheritdoc}
+   */
   public function settingsForm(array $form, array &$form_state) {
     $settings['pirate_display_tip'] = array(
       '#type' => 'checkbox',
