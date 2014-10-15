@@ -11,7 +11,7 @@ use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;
 
 /**
- * Provides a filter to limit allowed HTML tags.
+ * Provides a filter to change text into Pirate-speak
  *
  * @Filter(
  *   id = "pirate",
