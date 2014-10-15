@@ -6,6 +6,8 @@
 
 namespace Drupal\pirate\Plugin\Filter;
 
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;
 
 /**
@@ -26,7 +28,7 @@ class Pirate extends FilterBase {
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, array &$form_state) {
+  public function settingsForm(array $form, FormStateInterface $form_state) {
     $settings['pirate_display_tip'] = array(
       '#type' => 'checkbox',
       '#title' => t('Display Pirate filter tip'),
@@ -39,7 +41,7 @@ class Pirate extends FilterBase {
   /**
    * {@inheritdoc}
    */
-  public function process($text, $langcode, $cache, $cache_id) {
+  public function process($text, $langcode) {
     if (format_date(REQUEST_TIME, 'custom', 'md') != '0919') {
       return $text;
     }
