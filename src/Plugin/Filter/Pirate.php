@@ -44,7 +44,7 @@ class Pirate extends FilterBase {
    */
   public function process($text, $langcode) {
     if (format_date(REQUEST_TIME, 'custom', 'md') != '0919') {
-      return $text;
+      return new FilterProcessResult($text);
     }
     // Allow others to alter our patterns.
     // Cache must be flushed for invocations of this hook to be felt.
@@ -90,7 +90,7 @@ class Pirate extends FilterBase {
       }
       $text = implode($chunks);
     }
-    return $text;
+    return new FilterProcessResult($text);
   }
 
   /**
