@@ -16,7 +16,8 @@ use Drupal\filter\Plugin\FilterBase;
  * @Filter(
  *   id = "pirate",
  *   module = "pirate",
- *   title = @Translation("Ah, Squiddy! I got nothing against ye. I just heard there was gold in yer belly. Ha ha har, ha ha ha har!"),
+ *   title = @Translation("Change text to  Pirate-speak"),
+ *   description = @Translation("Ah, Squiddy! I got nothing against ye. I just heard there was gold in yer belly. Ha ha har, ha ha ha har!"),
  *   type = Drupal\filter\Plugin\FilterInterface::TYPE_TRANSFORM_REVERSIBLE,
  *   settings = {
  *     "pirate_display_tip" = 0,
