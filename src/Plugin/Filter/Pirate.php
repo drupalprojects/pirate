@@ -49,7 +49,7 @@ class Pirate extends FilterBase {
     // Allow others to alter our patterns.
     // Cache must be flushed for invocations of this hook to be felt.
     $patterns = array();
-    $patterns = module_invoke_all('captain', $patterns);
+    $patterns = \Drupal::moduleHandler()->invokeAll('captain', array($patterns));
 
     // Most of the following code is taken from Drupal core's Filter module
     // in order to exclude text within tags, such as URLs that might get
