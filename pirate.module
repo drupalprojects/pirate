@@ -5,9 +5,9 @@
  */
 function pirate_help($section) {
   switch ($section) {
-    case 'admin/modules#description':
-      return t("Avast ye scurvy dogs!");
-  }
+    case 'help.page.pirate':
+      return t('This module is a simple filter that, when enabled, will change your posts to Pirate talk on September 19th for <a href="@talklikeapirateday">Talk Like a Pirate Day</a>.', array('@talklikeapirateday' => 'http://www.talklikeapirate.com/'));
+    }
 }
 
 /**
