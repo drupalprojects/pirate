@@ -1,0 +1,118 @@
+<?php
+
+/**
+ * @file
+ * Contains \Drupal\pirate\Hook\Captain.
+ */
+
+namespace Drupal\pirate\Hook;
+
+/**
+ * Implements hook_captain().
+ */
+class Captain {
+  public function invoke($patterns) {
+    $pirate_patterns = array(
+      '%\bmy\b%' => 'me',
+      '%\bboss\b%' => 'admiral',
+      '%\bmanager\b%' => 'admiral',
+      '%\b[Cc]aptain\b%' => "Cap'n",
+      '%\bmyself\b%' => 'meself',
+      '%\byour\b%' => 'yer',
+      '%\byou\b%' => 'ye',
+      '%\bfriend\b%' => 'matey',
+      '%\bfriends\b%' => 'maties',
+      '%\bco[-]?worker\b%' => 'shipmate',
+      '%\bco[-]?workers\b%' => 'shipmates',
+      '%\bpeople\b%' => 'scallywags',
+      '%\bearlier\b%' => 'afore',
+      '%\bold\b%' => 'auld',
+      '%\bthe\b%' => "th'",
+      '%\bof\b%' =>  "o'",
+      "%\bdon't\b%" => "dern't",
+      '%\bdo not\b%' => "dern't",
+      '%\bnever\b%' => "no nay ne'er",
+      '%\bever\b%' => "e'er",
+      '%\bover\b%' => "o'er",
+      '%\bYes\b%' => 'Aye',
+      '%\bNo\b%' => 'Nay',
+      '%\bYeah\b%' => 'Aye',
+      '%\byeah\b%' => 'aye',
+      '%\bare\b%' => 'be',
+      '%\bDrupalists\b%' => 'Bucaneers',
+      '%\bthere\b%' => 'thar',
+      '%b\bnot\b%' => 'nay',
+      '%\bdesign\b%' => 'bounty',
+      '%\bonline\b%' => 'on the plank',
+      '/and\b/' => "an'",
+      '/ious\b/' => "i'us",
+      "%\bdon't know\b%" => "dinna",
+      "%\bdidn't know\b%" => "did nay know",
+      "%\bhadn't\b%" => "ha'nae",
+      "%\bdidn't\b%" =>  "di'nae",
+      "%\bwasn't\b%" => "weren't",
+      "%\bhaven't\b%" => "ha'nae",
+      '%\bfor\b%' => 'fer',
+      '%\bbetween\b%' => 'betwixt',
+      '%\baround\b%' => "aroun'",
+      '%\bto\b%' => "t'",
+      "%\bit's\b%" => "'tis",
+      '%\bwoman\b%' => 'wench',
+      '%\bwomen\b%' => 'wenches',
+      '%\blady\b%' => 'wench',
+      '%\bwife\b%' => 'lady',
+      '%\bgirl\b%' => 'lass',
+      '%\bgirls\b%' => 'lassies',
+      '%\bguy\b%' => 'lubber',
+      '%\bman\b%' => 'lubber',
+      '%\bfellow\b%' => 'lubber',
+      '%\bdude\b%' => 'lubber',
+      '%\bboy\b%' => 'lad',
+      '%\bboys\b%' => 'laddies',
+      '%\bchildren\b%' => 'little sandcrabs',
+      '%\bkids\b%' => 'minnows',
+      '%\bhim\b%' => 'that scurvey dog',
+      '%\bher\b%' => 'that comely wench',
+      '%\bhim\.\b%' => 'that drunken sailor',
+      '%\bHe\b%' => 'The ornery cuss',
+      '%\bShe\b%' => 'The winsome lass',
+      "%\bhe's\b%" => 'he be',
+      "%\bshe's\b%" => 'she be',
+      '%\bwas\b%' => "were bein'",
+      '%\bHey\b%' => 'Avast',
+      '%\bher\.\b%' => 'that lovely lass',
+      '%\bfood\b%' => 'chow',
+      '%\bmoney\b%' => 'dubloons',
+      '%\bdollars\b%' => 'pieces of eight',
+      '%\bcents\b%' => 'shillings',
+      '%\broad\b%' => 'sea',
+      '%\broads\b%' => 'seas',
+      '%\bstreet\b%' => 'river',
+      '%\bstreets\b%' => 'rivers',
+      '%\bhighway\b%' => 'ocean',
+      '%\bhighways\b%' => 'oceans',
+      '%\binterstate\b%' => 'high sea',
+      '%\bprobably\b%' => 'likely',
+      '%\bidea\b%' => 'notion',
+      '%\bcar\b%' => 'boat',
+      '%\bcars\b%' => 'boats',
+      '%\btruck\b%' => 'schooner',
+      '%\btrucks\b%' => 'schooners',
+      '%\bSUV\b%' => 'ship',
+      '%\bairplane\b%' => 'flying machine',
+      '%\bjet\b%' => 'flying machine',
+      '%\bmachine\b%' => 'contraption',
+      '%\bdriving\b%' => 'sailing',
+      '%\bunderstand\b%' => 'reckon',
+      '%\bdrive\b%' => 'sail',
+      '%\bdied\b%' => 'snuffed it',
+      '/ing\b/' => "in'",
+      '/ings\b/' => "in's",
+  
+      // These next two do cool random substitutions
+      '/(\.\s)/e' => 'pirate_avast("$0",3)',
+      '/([!\?]\s)/e' => 'pirate_avast("$0",2)', // Greater chance after exclamation
+    );
+    return array_merge($pirate_patterns, $patterns);
+  }
+}

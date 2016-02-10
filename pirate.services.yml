@@ -1,0 +1,3 @@
+services:
+    pirate.hook.captain:
+        class: Drupal\pirate\Hook\Captain
