@@ -63,8 +63,7 @@ class Pirate extends FilterBase {
         if ($chunk_type == 'text') {
           // Only process this text if there are no unclosed $ignore_tags.
           if ($open_tag == '') {
-          // If there is a match, inject a link into this chunk via the callback
-          // function contained in $task.
+            // If there is a match, replace this in the chunk
             $chunks[$i] = preg_replace($pattern_search, $pattern_replace, $chunks[$i]);
           }
           // Text chunk is done, so next chunk must be a tag.
@@ -73,7 +72,7 @@ class Pirate extends FilterBase {
         else {
           // Only process this tag if there are no unclosed $ignore_tags.
           if ($open_tag == '') {
-          // Check whether this tag is contained in $ignore_tags.
+            // Check whether this tag is contained in $ignore_tags.
             if (preg_match("`<($ignore_tags)(?:\s|>)`i", $chunks[$i], $matches)) {
               $open_tag = $matches[1];
             }
@@ -88,8 +87,8 @@ class Pirate extends FilterBase {
           $chunk_type = 'text';
         }
       }
-      $text = implode($chunks);
     }
+    $text = implode($chunks);
     return new FilterProcessResult($text);
   }
 
