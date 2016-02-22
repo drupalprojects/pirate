@@ -58,6 +58,7 @@ class Pirate extends FilterBase {
     $chunks = preg_split('/(<.+?>)/is', $text, -1, PREG_SPLIT_DELIM_CAPTURE);
     foreach ($patterns as $pattern_search => $pattern_replace) {
       $chunk_type = 'text';
+      $open_tag = '';
       for ($i = 0; $i < count($chunks); $i++) {
         if ($chunk_type == 'text') {
           // Only process this text if there are no unclosed $ignore_tags.
