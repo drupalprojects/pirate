@@ -49,7 +49,7 @@ class Pirate extends FilterBase {
     // Allow others to alter our patterns.
     // Cache must be flushed for invocations of this hook to be felt.
     $patterns = array();
-    $patterns = \Drupal::service('pirate.hook.captain')->invoke(array($patterns));
+    $patterns = \Drupal::service('pirate.hook.captain')->invoke($patterns);
     // Most of the following code is taken from Drupal core's Filter module
     // in order to exclude text within tags, such as URLs that might get
     // modified using the replacement patterns.
