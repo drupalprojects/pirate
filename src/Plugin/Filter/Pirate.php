@@ -43,7 +43,7 @@ class Pirate extends FilterBase {
    * {@inheritdoc}
    */
   public function process($text, $langcode) {
-    if (format_date(REQUEST_TIME, 'custom', 'md') != '0919') {
+    if (\Drupal::service('date.formatter')->format(REQUEST_TIME, 'custom', 'md') != '0919') {
       return new FilterProcessResult($text);
     }
     // Allow others to alter our patterns.
